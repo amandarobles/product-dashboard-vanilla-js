@@ -73,3 +73,7 @@ function handleError(error) { //creating function
     console.error("Fetch error:", error); //logging followed by error message
 
 }
+
+// Task 6: Call Your Fetch Functions
+fetchProductsThen();
+fetchProductsAsync();
