@@ -30,3 +30,30 @@ async function fetchProductsAsync() { //creating function
         handleError(error); //passed if error occurs
     }
 }
+
+// Task 4: Display the Products
+function displayProducts(products) { //writing function
+    const productContainer = document.querySelector("#product-container"); //selecting #product-container
+    if (!productContainer) {
+        console.error("No product container found in the DOM.");
+        return;
+    }
+    productContainer.innerHTML = "";
+    const productsToShow = products.slice(0,5); //looping through first 5 products
+    productsToShow.forEach(product => {
+        const productCard= document.createElement("div");
+        productCard.className = "product-card";
+
+        const img =document.createElement("img"); //creating HTML elements
+        img.src =product.fields.image[0].url;
+        img.alt= product.fields.name;
+        img.className= "product-name";
+
+        const price = document.createElement("p");
+        price.textContent = `$${(product.fields.price / 100).toFixed(2)}`;
+        price.className = "product-price";
+
+        productCard.append(img, name, price); //appending to container
+        productContainer.appendChild(productCard);
+    });
+}
