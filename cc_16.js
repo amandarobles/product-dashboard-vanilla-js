@@ -57,3 +57,19 @@ function displayProducts(products) { //writing function
         productContainer.appendChild(productCard);
     });
 }
+
+// Task 5: Reusable Error Handler
+function handleError(error) { //creating function
+    console.log("An error has occurred:" + error.message);
+    const errorElement = document.createElement("div");
+    errorElement.style.color ="red";
+    errorElement.style.padding = "10px";
+    errorElement.style.margin = "10px";
+    errorElement.style.border = "1px solid red";
+    errorElement.textContent = `Error: ${error.message}`;
+
+    const container = document.querySelector("#product-container") || document.body; //prepending to product container
+    container.prepend(errorElement);
+    console.error("Fetch error:", error); //logging followed by error message
+
+}
